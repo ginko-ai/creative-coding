@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        let t = 0;
+
+        function a(x, y) {
+            let k = x/4 - 12.5;
+            let e = y/9 + 9;
+            let o = mag(k, e)/9;
+            let e9 = e*9;
+            let o4 = o*4;
+            let t2 = t*2;
+            let q = x + 99 + tan(1/k) + o * k * (cos(e9)/2 + cos(y/9)/.7) * sin(o4-t2);
+            let c = o*e/30 - t/8;
+            let c4 = c*4;
+            point(q*.7*sin(c) + 200, 200 + y*cos(c4-o) - q/2*cos(c));
+        }
+
+        function setup() {
+            createCanvas(400, 400);
+        }
+
+        function draw() {
+            background(6);
+            stroke(400, 46);
+            for(let i = 0; i < 20000; i++) {
+                a(i % 100, i/250);
+            }
+            t += PI/60;
+        }
+    </script>
+</body>
+</html>
